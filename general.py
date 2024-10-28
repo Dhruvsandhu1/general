@@ -119,7 +119,7 @@ if st.button("Fetch the relevant reviews"):
     with col1:
         st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
         pros = [
-            ("Comprehensive Apple Device Management", [3, 8]),
+            ("Comprehensive Apple Device Management", [1, 8]),
             ("High Reliability in Large-Scale Environments", [4, 5]),
             ("Strong Customer Support and Community", [12, 36]),
             ("Efficient Zero-Touch Deployment", [4]),
@@ -143,7 +143,7 @@ if st.button("Fetch the relevant reviews"):
         st.markdown("<span style='color: red; font-weight: bold;'>**Cons**</span>", unsafe_allow_html=True)
         cons = [
             ("Steep Learning Curve", [12, 18]),
-            ("High Cost for Advanced Features", [6, 15]),
+            ("High Cost for Advanced Features", [3, 6, 15]),
             ("Outdated User Interface", [5, 25]),
             ("Inconsistent Patch Management", [2, 16, 24]),
             ("Limited Remote Assistance Capabilities", [15, 16, 29]),
