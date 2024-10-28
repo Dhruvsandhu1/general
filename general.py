@@ -134,7 +134,9 @@ if st.button("Fetch the relevant reviews"):
         # Display each "Pro" in an expander with reference summaries
         for pro, refs in pros:
             # with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
-            with st.expander(f"<span style='color: green; font-weight: bold;'>{pro} {linkify_numbers(refs)}</span>", expanded=False):
+            # with st.expander(f"<span style='color: green; font-weight: bold;'>{pro} {linkify_numbers(refs)}</span>", expanded=False):
+            st.markdown(f"<span style='color: green; font-weight: bold;'>{pro} {linkify_numbers(refs)}</span>", unsafe_allow_html=True)
+            with st.expander("", expanded=False):
                 for ref in refs:
                     summary_text = summaries.get(ref, "No summary available")
                     # st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
