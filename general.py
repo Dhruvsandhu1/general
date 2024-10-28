@@ -127,7 +127,7 @@ if st.button("Fetch the relevant reviews"):
         ]
         
         # Load dynamic summaries from JSON file
-        with open("final_clean_rev1.json", "r") as json_file:
+        with open("final_clean_rev.json", "r") as json_file:
             review_data = json.load(json_file)
             summaries = {review['id']: review['summary'] for review in review_data}
 
