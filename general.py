@@ -161,7 +161,9 @@ if st.button("Fetch the relevant reviews"):
         for pro, refs in pros:
             with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
                 for ref in refs:
-                    st.markdown(f"- {summaries.get(ref, 'No summary available')}")
+                    # st.markdown(f"- {summaries.get(ref, 'No summary available')}")
+                    summary_text = summaries.get(ref, "No summary available")
+                    st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
 
     with col2:
         # st.markdown(f"""
