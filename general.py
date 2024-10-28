@@ -126,13 +126,42 @@ if st.button("Fetch the relevant reviews"):
         #     - **Integrated Security Features** {linkify_numbers([3, 5, 11])}.
         #     """)
         # Displaying each "Pro" point separately in green
+        # st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
+        # st.markdown(f"<span style='color: green;'>- **Comprehensive Apple Device Management** {linkify_numbers([1, 3, 8])}</span>", unsafe_allow_html=True)
+        # st.markdown(f"<span style='color: green;'>- **High Reliability in Large-Scale Environments** {linkify_numbers([4, 5, 8])}</span>", unsafe_allow_html=True)
+        # st.markdown(f"<span style='color: green;'>- **Strong Customer Support and Community** {linkify_numbers([6, 12, 36])}</span>", unsafe_allow_html=True)
+        # st.markdown(f"<span style='color: green;'>- **Efficient Zero-Touch Deployment** {linkify_numbers([1, 4, 6])}</span>", unsafe_allow_html=True)
+        # st.markdown(f"<span style='color: green;'>- **Integrated Security Features** {linkify_numbers([3, 5, 11])}</span>", unsafe_allow_html=True)
+        
+        # Summaries for each reference link
+        summaries = {
+            1: "This review highlights the ease of use and comprehensive management features.",
+            3: "Focuses on the seamless integration with other Apple services.",
+            4: "Points out the reliability and scalability for enterprise environments.",
+            5: "Describes the robustness of the system under large-scale use.",
+            6: "Praised for its responsive customer support and active community.",
+            8: "Mentions the intuitive interface for Apple device management.",
+            11: "Details the integrated security features and compliance support.",
+            12: "Highlights the active user community and shared resources.",
+            36: "Discusses the comprehensive documentation and support network."
+        }
+        
         st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: green;'>- **Comprehensive Apple Device Management** {linkify_numbers([1, 3, 8])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: green;'>- **High Reliability in Large-Scale Environments** {linkify_numbers([4, 5, 8])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: green;'>- **Strong Customer Support and Community** {linkify_numbers([6, 12, 36])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: green;'>- **Efficient Zero-Touch Deployment** {linkify_numbers([1, 4, 6])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: green;'>- **Integrated Security Features** {linkify_numbers([3, 5, 11])}</span>", unsafe_allow_html=True)
-
+        
+        # List of pros with reference links
+        pros = [
+            ("Comprehensive Apple Device Management", [1, 3, 8]),
+            ("High Reliability in Large-Scale Environments", [4, 5, 8]),
+            ("Strong Customer Support and Community", [6, 12, 36]),
+            ("Efficient Zero-Touch Deployment", [1, 4, 6]),
+            ("Integrated Security Features", [3, 5, 11]),
+        ]
+        
+        # Display each pro in an expander with reference summaries
+        for pro, refs in pros:
+            with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
+                for ref in refs:
+                    st.markdown(f"- {summaries.get(ref, 'No summary available')}")
 
     with col2:
         # st.markdown(f"""
