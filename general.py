@@ -133,11 +133,12 @@ if st.button("Fetch the relevant reviews"):
 
         # Display each "Pro" in an expander with reference summaries
         for pro, refs in pros:
-            with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
+            # with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
+            with st.expander(f"<span style='color: green; font-weight: bold;'>{pro} {linkify_numbers(refs)}</span>", expanded=False):
                 for ref in refs:
                     summary_text = summaries.get(ref, "No summary available")
                     # st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
-                    st.markdown(f"- {linkify_numbers([ref])} {summary_text}")  # Use linkify_numbers to create internal link
+                    st.markdown(f"- {linkify_numbers([ref])} {summary_text}, unsafe_allow_html=True")  # Use linkify_numbers to create internal link
 
     with col2:
         st.markdown("<span style='color: red; font-weight: bold;'>**Cons**</span>", unsafe_allow_html=True)
