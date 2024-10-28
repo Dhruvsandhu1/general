@@ -120,10 +120,10 @@ if st.button("Fetch the relevant reviews"):
         st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
         pros = [
             ("Comprehensive Apple Device Management", [1, 3, 8]),
-            ("High Reliability in Large-Scale Environments", [4, 5, 8]),
-            ("Strong Customer Support and Community", [6, 12, 36]),
-            ("Efficient Zero-Touch Deployment", [1, 4, 6]),
-            ("Integrated Security Features", [3, 5, 11]),
+            ("High Reliability in Large-Scale Environments", [4, 5]),
+            ("Strong Customer Support and Community", [12, 36]),
+            ("Efficient Zero-Touch Deployment", [4]),
+            ("Integrated Security Features", [5, 11]),
         ]
         
         # Load dynamic summaries from JSON file
@@ -142,9 +142,9 @@ if st.button("Fetch the relevant reviews"):
     with col2:
         st.markdown("<span style='color: red; font-weight: bold;'>**Cons**</span>", unsafe_allow_html=True)
         cons = [
-            ("Steep Learning Curve", [3, 12, 18]),
-            ("High Cost for Advanced Features", [1, 6, 15]),
-            ("Outdated User Interface", [5, 12, 25]),
+            ("Steep Learning Curve", [12, 18]),
+            ("High Cost for Advanced Features", [6, 15]),
+            ("Outdated User Interface", [5, 25]),
             ("Inconsistent Patch Management", [2, 16, 24]),
             ("Limited Remote Assistance Capabilities", [15, 16, 29]),
         ]
