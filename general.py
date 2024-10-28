@@ -117,38 +117,7 @@ if st.button("Fetch the relevant reviews"):
     col1, col2 = st.columns(2)
     
     with col1:
-        # st.markdown(f"""
-        #                 **Pros**
-        #     - **Comprehensive Apple Device Management** {linkify_numbers([1, 3, 8])}.
-        #     - **High Reliability in Large-Scale Environments** {linkify_numbers([4, 5, 8])}.
-        #     - **Strong Customer Support and Community** {linkify_numbers([6, 12, 36])}
-        #     - **Efficient Zero-Touch Deployment** {linkify_numbers([1, 4, 6])}.
-        #     - **Integrated Security Features** {linkify_numbers([3, 5, 11])}.
-        #     """)
-        # Displaying each "Pro" point separately in green
-        # st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
-        # st.markdown(f"<span style='color: green;'>- **Comprehensive Apple Device Management** {linkify_numbers([1, 3, 8])}</span>", unsafe_allow_html=True)
-        # st.markdown(f"<span style='color: green;'>- **High Reliability in Large-Scale Environments** {linkify_numbers([4, 5, 8])}</span>", unsafe_allow_html=True)
-        # st.markdown(f"<span style='color: green;'>- **Strong Customer Support and Community** {linkify_numbers([6, 12, 36])}</span>", unsafe_allow_html=True)
-        # st.markdown(f"<span style='color: green;'>- **Efficient Zero-Touch Deployment** {linkify_numbers([1, 4, 6])}</span>", unsafe_allow_html=True)
-        # st.markdown(f"<span style='color: green;'>- **Integrated Security Features** {linkify_numbers([3, 5, 11])}</span>", unsafe_allow_html=True)
-        
-        # Summaries for each reference link
-        summaries = {
-            1: "This review highlights the ease of use and comprehensive management features.",
-            3: "Focuses on the seamless integration with other Apple services.",
-            4: "Points out the reliability and scalability for enterprise environments.",
-            5: "Describes the robustness of the system under large-scale use.",
-            6: "Praised for its responsive customer support and active community.",
-            8: "Mentions the intuitive interface for Apple device management.",
-            11: "Details the integrated security features and compliance support.",
-            12: "Highlights the active user community and shared resources.",
-            36: "Discusses the comprehensive documentation and support network."
-        }
-        
         st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
-        
-        # List of pros with reference links
         pros = [
             ("Comprehensive Apple Device Management", [1, 3, 8]),
             ("High Reliability in Large-Scale Environments", [4, 5, 8]),
@@ -157,30 +126,34 @@ if st.button("Fetch the relevant reviews"):
             ("Integrated Security Features", [3, 5, 11]),
         ]
         
-        # Display each pro in an expander with reference summaries
+        # Load dynamic summaries from JSON file
+        with open("final_clean_rev.json", "r") as json_file:
+            review_data = json.load(json_file)
+            summaries = {review['id']: review['summary'] for review in review_data}
+
+        # Display each "Pro" in an expander with reference summaries
         for pro, refs in pros:
             with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
                 for ref in refs:
-                    # st.markdown(f"- {summaries.get(ref, 'No summary available')}")
                     summary_text = summaries.get(ref, "No summary available")
                     st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
 
     with col2:
-        # st.markdown(f"""
-        #                 **Cons**
-        #     - **Steep Learning Curve** {linkify_numbers([3, 12, 18])}.
-        #     - **High Cost for Advanced Features** {linkify_numbers([1, 6, 15])}.
-        #     - **Outdated User Interface** {linkify_numbers([5, 12, 25])}.
-        #     - **Inconsistent Patch Management** {linkify_numbers([2, 16, 24])}.
-        #     - **Limited Remote Assistance Capabilities** {linkify_numbers([15, 16, 29])}.
-        #     """)
-        # Displaying each "Con" point separately in red
         st.markdown("<span style='color: red; font-weight: bold;'>**Cons**</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: red;'>- **Steep Learning Curve** {linkify_numbers([3, 12, 18])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: red;'>- **High Cost for Advanced Features** {linkify_numbers([1, 6, 15])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: red;'>- **Outdated User Interface** {linkify_numbers([5, 12, 25])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: red;'>- **Inconsistent Patch Management** {linkify_numbers([2, 16, 24])}</span>", unsafe_allow_html=True)
-        st.markdown(f"<span style='color: red;'>- **Limited Remote Assistance Capabilities** {linkify_numbers([15, 16, 29])}</span>", unsafe_allow_html=True)
+        cons = [
+            ("Steep Learning Curve", [3, 12, 18]),
+            ("High Cost for Advanced Features", [1, 6, 15]),
+            ("Outdated User Interface", [5, 12, 25]),
+            ("Inconsistent Patch Management", [2, 16, 24]),
+            ("Limited Remote Assistance Capabilities", [15, 16, 29]),
+        ]
+
+        # Display each "Con" in an expander with reference summaries
+        for con, refs in cons:
+            with st.expander(f"**{con}** {linkify_numbers(refs)}"):
+                for ref in refs:
+                    summary_text = summaries.get(ref, "No summary available")
+                    st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
 
 
 
