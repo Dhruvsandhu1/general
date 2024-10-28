@@ -136,7 +136,8 @@ if st.button("Fetch the relevant reviews"):
             with st.expander(f"**{pro}** {linkify_numbers(refs)}"):
                 for ref in refs:
                     summary_text = summaries.get(ref, "No summary available")
-                    st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
+                    # st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
+                    st.markdown(f"- {linkify_numbers([ref])} {summary_text}")  # Use linkify_numbers to create internal link
 
     with col2:
         st.markdown("<span style='color: red; font-weight: bold;'>**Cons**</span>", unsafe_allow_html=True)
@@ -153,9 +154,8 @@ if st.button("Fetch the relevant reviews"):
             with st.expander(f"**{con}** {linkify_numbers(refs)}"):
                 for ref in refs:
                     summary_text = summaries.get(ref, "No summary available")
-                    st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
-
-
+                    # st.markdown(f"- [{ref}](https://example.com/reference{ref}) {summary_text}")
+                    st.markdown(f"- {linkify_numbers([ref])} {summary_text}")  # Use linkify_numbers to create internal link
 
     st.markdown("______________________")
     st.header("Reviews that matches your profile")
