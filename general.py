@@ -119,7 +119,7 @@ if st.button("Fetch the relevant reviews"):
     with col1:
         st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
         pros = [
-            ("Comprehensive Apple Device Management", [1, 8]),
+            ("Comprehensive Apple Device Management", [0, 8]),
             ("High Reliability in Large-Scale Environments", [4, 5]),
             ("Strong Customer Support and Community", [12, 36]),
             ("Efficient Zero-Touch Deployment", [4]),
@@ -172,11 +172,11 @@ if st.button("Fetch the relevant reviews"):
             st.subheader(elem['title'])
         if 'platform' in elem:
             if 'upvotes' in elem:
-                st.markdown(f"[{idx+1}] Platform : {elem['platform']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
+                st.markdown(f"[{idx}] Platform : {elem['platform']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
             else:
-                st.markdown(f"[{idx+1}] Platform : {elem['platform']} | [Open Review]({elem['url']}) | [Go Back](#{0})")
+                st.markdown(f"[{idx}] Platform : {elem['platform']} | [Open Review]({elem['url']}) | [Go Back](#{0})")
         else:   
-            st.markdown(f"[{idx+1}] Platform : Reddit/{elem['subreddit']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
+            st.markdown(f"[{idx}] Platform : Reddit/{elem['subreddit']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
         sample_para=elem['body']
         if flag==1:
             sample_para=elem['title']
