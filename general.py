@@ -119,11 +119,11 @@ if st.button("Fetch the relevant reviews"):
     with col1:
         st.markdown("<span style='color: green; font-weight: bold;'>**Pros**</span>", unsafe_allow_html=True)
         pros = [
-            ("Comprehensive Apple Device Management", [0, 8]),
-            ("High Reliability in Large-Scale Environments", [4, 5]),
-            ("Strong Customer Support and Community", [12, 36]),
-            ("Efficient Zero-Touch Deployment", [4]),
-            ("Integrated Security Features", [5, 11]),
+            ("Comprehensive Apple Device Management", [1, 9]),
+            ("High Reliability in Large-Scale Environments", [5, 6]),
+            ("Strong Customer Support and Community", [13, 37]),
+            ("Efficient Zero-Touch Deployment", [5]),
+            ("Integrated Security Features", [6, 12]),
         ]
         
         # Load dynamic summaries from JSON file
@@ -142,11 +142,11 @@ if st.button("Fetch the relevant reviews"):
     with col2:
         st.markdown("<span style='color: red; font-weight: bold;'>**Cons**</span>", unsafe_allow_html=True)
         cons = [
-            ("Steep Learning Curve", [12, 18]),
-            ("High Cost for Advanced Features", [3, 6, 15]),
-            ("Outdated User Interface", [5, 25]),
-            ("Inconsistent Patch Management", [2, 16, 24]),
-            ("Limited Remote Assistance Capabilities", [15, 16, 29]),
+            ("Steep Learning Curve", [13, 19]),
+            ("High Cost for Advanced Features", [4, 7, 16]),
+            ("Outdated User Interface", [6, 26]),
+            ("Inconsistent Patch Management", [3, 17, 25]),
+            ("Limited Remote Assistance Capabilities", [16, 17, 30]),
         ]
 
         # Display each "Con" in an expander with reference summaries
@@ -172,11 +172,11 @@ if st.button("Fetch the relevant reviews"):
             st.subheader(elem['title'])
         if 'platform' in elem:
             if 'upvotes' in elem:
-                st.markdown(f"[{idx}] Platform : {elem['platform']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
+                st.markdown(f"[{idx+1}] Platform : {elem['platform']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
             else:
-                st.markdown(f"[{idx}] Platform : {elem['platform']} | [Open Review]({elem['url']}) | [Go Back](#{0})")
+                st.markdown(f"[{idx+1}] Platform : {elem['platform']} | [Open Review]({elem['url']}) | [Go Back](#{0})")
         else:   
-            st.markdown(f"[{idx}] Platform : Reddit/{elem['subreddit']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
+            st.markdown(f"[{idx+1}] Platform : Reddit/{elem['subreddit']} | {elem['created'].split()[0]} | [Open Review]({elem['url']}) | Upvotes : {elem['upvotes']} | [Go Back](#{0})")
         sample_para=elem['body']
         if flag==1:
             sample_para=elem['title']
